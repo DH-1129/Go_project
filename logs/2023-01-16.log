@@ -1,0 +1,9 @@
+[ERROR] 2023/01/16 14:39:23 log.go:42: connect redis failed! err : dial tcp 123.60.11.44:6379: i/o timeout
+
+[ERROR] 2023/01/16 15:59:51 log.go:42: connect redis failed! err : dial tcp 123.60.11.44:6379: i/o timeout
+
+[ERROR] 2023/01/16 16:02:54 log.go:42: connect redis failed! err : dial tcp 123.60.11.44:6379: i/o timeout
+
+[ERROR] 2023/01/16 16:05:59 log.go:42: connect redis failed! err : dial tcp 123.60.11.44:6379: i/o timeout
+
+[ERROR] 2023/01/16 21:12:08 log.go:42: 新用户插入失败!  Error 1054 (42S22): Unknown column 'last_time' in 'field list'

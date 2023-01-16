@@ -1,0 +1,9 @@
+[ERROR] 2023/01/14 13:50:21 log.go:42: 数据库连接失败!  driver: bad connection
+[ERROR] 2023/01/14 14:08:07 log.go:42: 数据库连接失败!  failed to connect to `host=localhost user=辉 database=`: dial error (dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it.)
+[ERROR] 2023/01/14 14:08:16 log.go:42: 数据库连接失败!  driver: bad connection
+[ERROR] 2023/01/14 14:13:14 log.go:42: 数据库连接失败!  failed to connect to `host=localhost user=辉 database=`: dial error (dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it.)
+[ERROR] 2023/01/14 14:13:29 log.go:42: 数据库连接失败!  failed to connect to `host=localhost user=辉 database=`: dial error (dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it.)
+[ERROR] 2023/01/14 16:13:52 log.go:42: get user_info by email error  &{0xc00015a480 Error 1054 (42S22): Unknown column 'user_info.deleted_at' in 'where clause' 0 0xc0006c21c0 0}
+[ERROR] 2023/01/14 19:02:31 log.go:42: get user_info by email error  record not found
+[ERROR] 2023/01/14 19:03:20 log.go:42: get user_info by email error  record not found
+[ERROR] 2023/01/14 19:11:33 log.go:42: get user_info by email error  record not found
