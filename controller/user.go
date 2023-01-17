@@ -52,8 +52,10 @@ func Register(c *gin.Context) {
 			Email:       email,
 			Username:    Get_Username(),
 			Uid:         Get_Username(),
-			Password:    "",
+			Password:    password,
+			Img_url:     "wwww.image",
 			Create_time: time.Now(),
+			Last_time:   time.Now(),
 		}
 		err := model.DB.Create(&user).Error
 		if err != nil {

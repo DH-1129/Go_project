@@ -17,7 +17,6 @@ type User struct {
 	Create_time time.Time `gorm:"column:create_time"`
 	Last_time   time.Time `gorm:"column:last_time"`
 	Password    string    `gorm:"column:password"`
-	Update_time time.Time `gorm:"column:update_time"`
 }
 
 func (u User) TableName() string {
