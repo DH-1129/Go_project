@@ -1,0 +1,17 @@
+[ERROR] 2023/01/18 15:26:55 log.go:42: 新用户插入失败!  record not found
+[ERROR] 2023/01/18 16:07:19 log.go:42: connect redis failed! err : redis: nil
+
+[ERROR] 2023/01/18 16:07:45 log.go:42: connect redis failed! err : redis: nil
+
+[ERROR] 2023/01/18 16:08:12 log.go:42: connect redis failed! err : redis: nil
+
+[INFO] 2023/01/18 16:14:29 log.go:31: 
+[INFO] 2023/01/18 16:16:02 log.go:31: 
+[INFO] 2023/01/18 16:18:38 log.go:31: 改邮箱的验证码不存在 err : redis: nil
+
+[INFO] 2023/01/18 16:21:39 log.go:31: 改邮箱的验证码不存在 err : redis: nil
+
+[INFO] 2023/01/18 18:35:46 log.go:31: 该邮箱的验证码不存在 err : redis: nil
+
+[INFO] 2023/01/18 18:35:50 log.go:31: 该邮箱的验证码不存在 err : redis: nil
+

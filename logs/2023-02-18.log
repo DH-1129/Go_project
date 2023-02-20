@@ -1,0 +1,13 @@
+[ERROR] 2023/02/18 19:28:54 log.go:42: 数据库连接失败!  dial tcp 123.60.161.44:3306: connectex: No connection could be made because the target machine actively refused it.
+[ERROR] 2023/02/18 20:14:30 log.go:42: 数据库连接失败!  Error 1049 (42000): Unknown database 'My_Project'
+[ERROR] 2023/02/18 20:26:23 log.go:42: 数据库连接失败!  Error 1049 (42000): Unknown database 'My_Project'
+[INFO] 2023/02/18 21:12:51 log.go:31: 该邮箱的验证码不存在 err : redis: nil
+
+[ERROR] 2023/02/18 21:15:39 log.go:42: 数据库连接失败!  Error 1045 (28000): Access denied for user 'root'@'222.244.223.41' (using password: YES)
+[ERROR] 2023/02/18 21:17:30 log.go:42: 数据库连接失败!  Error 1045 (28000): Access denied for user 'root'@'222.244.223.41' (using password: YES)
+[ERROR] 2023/02/18 21:20:11 log.go:42: 数据库连接失败!  Error 1045 (28000): Access denied for user 'root'@'222.244.223.41' (using password: YES)
+[ERROR] 2023/02/18 21:20:57 log.go:42: 数据库连接失败!  Error 1045 (28000): Access denied for user 'root'@'222.244.223.41' (using password: YES)
+[ERROR] 2023/02/18 21:30:03 log.go:42: 数据库连接失败!  Error 1045 (28000): Access denied for user 'root'@'222.244.223.41' (using password: YES)
+[ERROR] 2023/02/18 21:30:32 log.go:42: 数据库连接失败!  Error 1045 (28000): Access denied for user 'root'@'222.244.223.41' (using password: YES)
+[ERROR] 2023/02/18 21:42:23 log.go:42: 数据库连接失败!  Error 1045 (28000): Access denied for user 'root'@'222.244.223.41' (using password: YES)
+[ERROR] 2023/02/18 21:44:21 log.go:42: 邮箱注册验证码发送失败!  503 Error: need EHLO and AUTH first !

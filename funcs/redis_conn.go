@@ -47,8 +47,25 @@ func Set_Code(key string, code string, exp time.Duration) (err error) {
 	}
 	err = Redisclient.Set(key, code, exp).Err()
 	if err != nil {
-		Danger(fmt.Sprintf("redis set code_key err : %v\n", err))
+		Info(fmt.Sprintf("redis set code_key err : %v\n", err))
 		return err
 	}
 	return nil
+}
+
+// 验证验证码是否过期
+func Veri_Code(code string, email string) bool {
+	err := InitRedis()
+	if err != nil {
+		Danger(fmt.Sprintf("connect redis failed! err : %v\n", err))
+		return false
+	}
+	res, err := Redisclient.Get(email).Result()
+	if err != nil {
+		Info(fmt.Sprintf("该邮箱的验证码不存在 err : %v\n", err))
+		return false
+	} else {
+		fmt.Println(res, res == code)
+		return res == code
+	}
 }
