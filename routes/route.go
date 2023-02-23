@@ -19,6 +19,8 @@ func SetupRoute() *gin.Engine {
 			v1.POST("/update/password", controller.Update_Password)
 			v1.POST("/update/info", middleware.Token_Auth(), controller.Update_Info)
 			v1.POST("/update/img", middleware.Token_Auth(), controller.Update_IMG)
+			v1.POST("/upload/video", middleware.Token_Auth(), controller.Upload_Video)
+			v1.POST("/del/video", middleware.Token_Auth(), controller.Del_Video)
 		}
 	}
 	return r

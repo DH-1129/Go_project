@@ -7,16 +7,18 @@ import (
 type User struct {
 	// gorm.Model
 	Id          int    `gorm:"column:id;primary_key;AUTO_INCREMENT;omitempty"`
-	Uid         string `gorm:"column:uid;omitempty" json:"uid"`
-	Username    string `gorm:"column:username;omitempty" json:"username"`
-	Email       string `gorm:"column:email;omitempty" json:"email"`
-	Phone       string `gorm:"column:phone;omitempty" json:"phone"`
-	Img_url     string `gorm:"column:img_url;omitempty" json:"img_url"`
-	Sex         string `gorm:"column:sex;omitempty" json:"sex"`
-	Signature   string `gorm:"column:signature;omitempty" json:"signature"`
+	Uid         string `gorm:"column:uid;omitempty"`
+	Username    string `gorm:"column:username;omitempty" `
+	Email       string `gorm:"column:email;omitempty" `
+	Phone       string `gorm:"column:phone;omitempty" `
+	Img_url     string `gorm:"column:img_url;omitempty"`
+	Sex         string `gorm:"column:sex;omitempty"`
+	Signature   string `gorm:"column:signature;omitempty"`
 	Create_Time time.Time
 	Update_Time time.Time `gorm:"autoUpdateTime"`
-	Password    string    `gorm:"column:password;omitempty" json:"password,omitempty"`
+	Password    string    `gorm:"column:password;omitempty"`
+	Likes       string    `gorm:"column:likes"`
+	Collections string    `gorm:"column:collections"`
 }
 
 func (u User) TableName() string {

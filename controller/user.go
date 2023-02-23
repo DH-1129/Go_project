@@ -255,7 +255,7 @@ func Update_IMG(c *gin.Context) {
 			log.Fatal(err)
 		}
 		filename := uid + ".png"
-		dir := configs.H_IMG_DIR + "/" + filename
+		dir := configs.USER_IMG_DIR + "/" + filename
 		if err := c.SaveUploadedFile(file, dir); err == nil {
 			c.JSON(http.StatusOK, gin.H{
 				"status_code": 2000,
