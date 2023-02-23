@@ -17,11 +17,8 @@ func SetupRoute() *gin.Engine {
 			v1.POST("/verification_code", controller.Send_Verificaton)
 
 			v1.POST("/update/password", controller.Update_Password)
-			// v1.Use(gin.BasicAuth(gin.Accounts{
-			// 	"admin": "123456",
-			// }))
-			v1.Use(middleware.Token_Auth())
-			v1.POST("/update/info", controller.Update_Info)
+			v1.POST("/update/info", middleware.Token_Auth(), controller.Update_Info)
+			v1.POST("/update/img", middleware.Token_Auth(), controller.Update_IMG)
 		}
 	}
 	return r

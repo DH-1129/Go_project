@@ -2,10 +2,12 @@ package controller
 
 import (
 	"fmt"
+	"log"
 	"math/rand"
 	"net/http"
 	"time"
 
+	"dhui.com/configs"
 	"dhui.com/funcs"
 	"dhui.com/model"
 	"github.com/gin-gonic/gin"
@@ -241,4 +243,37 @@ func Update_Info(c *gin.Context) {
 			"message":     "授权用户和当前修改用户不一致!",
 		})
 	}
+}
+
+// 修改头像
+func Update_IMG(c *gin.Context) {
+	uid := c.PostForm("uid")
+	tkuid, ok := c.Get("uid") // 避免利用合法token修改别人信息
+	if ok && uid != "" && uid == tkuid {
+		file, err := c.FormFile("img")
+		if err != nil {
+			log.Fatal(err)
+		}
+		filename := uid + ".png"
+		dir := configs.H_IMG_DIR + "/" + filename
+		if err := c.SaveUploadedFile(file, dir); err == nil {
+			c.JSON(http.StatusOK, gin.H{
+				"status_code": 2000,
+				"message":     "头像修改成功！",
+			})
+		} else {
+			log.Fatal(err)
+			c.JSON(http.StatusOK, gin.H{
+				"status_code": 4001,
+				"message":     "头像保存失败！",
+			})
+		}
+
+	} else {
+		c.JSON(http.StatusOK, gin.H{
+			"status_code": 4000,
+			"message":     "身份认证失败!"})
+
+	}
+
 }
