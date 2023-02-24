@@ -49,9 +49,7 @@ func Get_Uid(uid_len int) (uid string) {
 func Login(c *gin.Context) {
 	email := c.PostForm("email")
 	password := c.PostForm("password")
-	fmt.Println(email != " ", password != " ")
 	if email != " " && password != " " {
-		fmt.Println("raSr")
 		var user model.User
 		err := model.DB.Where("email=?", email).First(&user).Error
 		fmt.Println("err: ", err)
