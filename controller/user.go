@@ -2,6 +2,7 @@ package controller
 
 import (
 	"fmt"
+	"io/ioutil"
 	"log"
 	"math/rand"
 	"net/http"
@@ -68,11 +69,13 @@ func Login(c *gin.Context) {
 				})
 			} else {
 				user.Password = ""
+
 				c.JSON(http.StatusOK, gin.H{
 					"status_code": 200,
 					"message":     "登录成功",
 					"token":       funcs.Get_Token(user.Uid, user.Username),
 					"data":        user,
+					"user_img":    "http://" + configs.HOST_IP + ":" + configs.MEDIA_PORT + user.Prex + "/" + user.Img_Name,
 				})
 			}
 		}
@@ -94,13 +97,18 @@ func Register(c *gin.Context) {
 
 	if email != " " && v_code != " " && password != " " && funcs.VerificationFormat(email) {
 		flag := funcs.Veri_Code(v_code, email) // 校验验证码
+		files, err := ioutil.ReadDir("./image")
+		if err != nil {
+			log.Fatal(err)
+		}
+		img_name := files[0].Name()
 		if flag {
 			user := model.User{
 				Email:       email,
 				Username:    Get_Username(12),
 				Uid:         Get_Uid(8),
 				Password:    funcs.Encrypthon_PW(password),
-				Img_url:     "wwww.image",
+				Img_Name:    img_name,
 				Sex:         "未知",
 				Create_Time: time.Now(),
 				Update_Time: time.Now(),
@@ -208,7 +216,6 @@ func Update_Password(c *gin.Context) {
 }
 
 // 用户其他信息修改
-
 func Update_Info(c *gin.Context) {
 	// fmt.Printf("%T", c.Get("claim"))
 	new_username := c.PostForm("new_username")
@@ -254,7 +261,15 @@ func Update_IMG(c *gin.Context) {
 		}
 		filename := uid + ".png"
 		dir := configs.USER_IMG_DIR + "/" + filename
+
 		if err := c.SaveUploadedFile(file, dir); err == nil {
+			var user model.User
+			// img_url := "http://" + configs.HOST_IP + ":" + configs.MEDIA_PORT + "/images/" + filename
+			err := model.DB.Model(&user).Select("img_name").UpdateColumns(model.User{Img_Name: filename}).Error
+			if err != nil {
+				log.Fatal(err)
+				return
+			}
 			c.JSON(http.StatusOK, gin.H{
 				"status_code": 2000,
 				"message":     "头像修改成功！",

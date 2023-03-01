@@ -11,7 +11,7 @@ type User struct {
 	Username    string `gorm:"column:username;omitempty" `
 	Email       string `gorm:"column:email;omitempty" `
 	Phone       string `gorm:"column:phone;omitempty" `
-	Img_url     string `gorm:"column:img_url;omitempty"`
+	Img_Name    string `gorm:"column:img_name;omitempty"`
 	Sex         string `gorm:"column:sex;omitempty"`
 	Signature   string `gorm:"column:signature;omitempty"`
 	Create_Time time.Time
@@ -19,6 +19,7 @@ type User struct {
 	Password    string    `gorm:"column:password;omitempty"`
 	Likes       string    `gorm:"column:likes"`
 	Collections string    `gorm:"column:collections"`
+	Prex        string    `gorm:"column:prex"`
 }
 
 func (u User) TableName() string {
